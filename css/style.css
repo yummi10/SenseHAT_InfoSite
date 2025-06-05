@@ -1,0 +1,104 @@
+/* 전체 배경 및 폰트 설정 */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #EDE9FE 0%, #F3F0FF 100%);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 로그인 박스 스타일 */
+.login-box {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* 로그인 제목 */
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #3F3D56;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 로그인 이미지 */
+.login-image {
+  display: block;
+  margin: 0 auto 25px;
+  width: 280px;
+  height: auto;
+}
+
+/* 인풋 필드 스타일 */
+.login-box input {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.login-box input:focus {
+  border-color: #A78BFA;
+  outline: none;
+}
+
+/* 로그인 버튼 */
+#loginBtn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  background-color: #7C3AED;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#loginBtn:hover {
+  background-color: #6D28D9;
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+  }
+
+  .login-image {
+    width: 100px;
+  }
+
+  .login-box input,
+  #loginBtn {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
