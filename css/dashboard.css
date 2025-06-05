@@ -1,15 +1,15 @@
 /* 전체 배경 및 폰트 설정 */
 body {
   margin: 0;
+  padding: 20px;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #EDE9FE 0%, #F3F0FF 100%);
   background-size: 400% 400%;
-  animation: gradient 12s ease infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  animation: gradient 10s ease infinite;
   min-height: 100vh;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
 }
 
@@ -21,12 +21,13 @@ body {
 
 /* 대시보드 전체 박스 */
 .dashboard {
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.9);
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  width: 90%;
-  max-width: 950px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+  width: 95%;
+  max-width: 1000px;
   color: #2c3e50;
   text-align: center;
 }
@@ -34,48 +35,68 @@ body {
 /* 타이틀 */
 h1 {
   font-size: 1.8rem;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 2rem;
   color: #3F3D56;
 }
 
 /* 센서 데이터 카드 */
 .card {
-  background: #f9f9ff;
+  background: #fafafa;
   border-radius: 12px;
-  padding: 1rem 1.3rem;
+  padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  line-height: 1.4;
+  justify-content: space-between;
 }
 
 .card strong {
   font-weight: 600;
-  margin-right: 4px;
 }
 
 .card span {
   font-weight: 500;
-  color: #333;
+  color: #555;
 }
 
-/* 반응형 */
-@media (max-width: 480px) {
-  .dashboard {
-    padding: 1.5rem;
-  }
-  .card {
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 0.95rem;
-  }
+/* 메시지 입력 폼 */
+.message-form {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* 진동 효과 */
+#messageInput {
+  width: 70%;
+  min-width: 200px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+}
+
+#sendMessageBtn {
+  padding: 0.8rem 1.2rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #7C3AED;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#sendMessageBtn:hover {
+  background-color: #6D28D9;
+}
+
 @keyframes shake {
   0% { transform: translate(0, 0); }
   25% { transform: translate(3px, 0); }
@@ -88,31 +109,8 @@ h1 {
   animation: shake 0.3s;
 }
 
-/* 메시지 입력 폼 */
-#messageInput {
-  width: 70%;
-  padding: 0.8rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  outline: none;
-}
-
-#sendMessageBtn {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #7C3AED;
-  color: white;
-  font-size: 0.95rem;
-  cursor: pointer;
-  margin-left: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-
-#sendMessageBtn:hover {
-  background-color: #6D28D9;
+.table-container {
+  overflow-x: auto;
 }
 
 /* 학생 데이터 테이블 */
@@ -120,14 +118,13 @@ h1 {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  min-width: 800px;
 }
 
 .student-table th,
 .student-table td {
-  padding: 1rem;
+  border: 1px solid #ddd;
+  padding: 0.8rem 1rem;
   text-align: center;
   font-size: 0.95rem;
 }
@@ -135,13 +132,25 @@ h1 {
 .student-table th {
   background-color: #7C3AED;
   color: white;
-  font-weight: bold;
 }
 
 .student-table tr:nth-child(even) {
-  background-color: #f9f9ff;
+  background-color: #f9f9f9;
 }
 
-.student-table tr:hover {
-  background-color: #f3f0ff;
+/* 반응형 */
+@media (max-width: 768px) {
+  .message-form {
+    flex-direction: column;
+  }
+
+  #messageInput {
+    width: 92%;
+    margin-bottom: 0.5rem;
+  }
+
+  #sendMessageBtn {
+    width: 100%;
+    margin-left: 0;
+  }
 }
